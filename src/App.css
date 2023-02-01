@@ -77,7 +77,7 @@
     text-align: center;
   }
   .nav-links-container {
-    height: 100%;
+    height: inherit;
   }
   .nav-links > li:active {
     padding-left: 0;
