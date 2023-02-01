@@ -6,11 +6,14 @@
   --attention-grab: #ef7cac;
   --promos: #ff5a5f;
   --padding: 2rem;
+  --transition-time: 0.3s;
 }
 #root {
   max-width: 1280px;
   margin: 0 auto;
 }
+/* navbar */
+
 .logo {
   color: var(--primary);
 }
@@ -22,7 +25,7 @@
 .nav-header {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
 .nav-hamburger {
@@ -31,10 +34,55 @@
 .nav-hamburger > svg {
   fill: var(--primary);
 }
-
+.nav-links-container {
+  overflow: hidden;
+  transition: height var(--transition-time);
+}
 .nav-links {
   margin-left: var(--padding);
 }
 .nav-links > li {
   list-style: none;
+  padding: 5px 0;
+  transition: padding var(--transition-time);
+}
+.nav-links > li:active {
+  padding-left: 1rem;
+}
+.nav-a {
+  margin-left: 10px;
+  color: var(--primary);
+}
+.nav-a > svg {
+  fill: var(--primary);
+}
+
+@media (min-width: 440px) {
+  li > svg {
+    display: none;
+  }
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-hamburger {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 10px;
+  }
+  .nav-links > li {
+    text-align: center;
+  }
+  .nav-links-container {
+    height: 100%;
+  }
+  .nav-links > li:active {
+    padding-left: 0;
+  }
+  .nav-links:last-child {
+    margin-right: var(--padding);
+  }
 }
