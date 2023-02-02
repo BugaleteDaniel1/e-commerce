@@ -3,6 +3,7 @@
   --primary: #333;
   --secondary: #6851a9;
   --accent: #8cc152;
+  --accent-clean: #dfffbc;
   --attention-grab: #ef7cac;
   --promos: #ff5a5f;
   --padding: 2rem;
@@ -119,6 +120,7 @@ p {
   background: var(--accent);
   color: var(--background-color);
 }
+
 .landing-header {
   display: flex;
   flex-direction: column;
@@ -140,16 +142,33 @@ p {
   .landing-title {
     font-size: 3rem;
   }
+
   .image-container {
     display: block;
     max-width: 50%;
+    position: relative;
   }
-  .image-container > img {
-    border-radius: 10px;
 
+  .home-img {
+    position: relative;
+    border-radius: 10px;
+    z-index: 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .animation {
+    transition: left 0.5s;
+    background: var(--accent);
+    height: 80%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    z-index: 1;
+  }
+  .image-container:hover .animation {
+    left: -10%;
   }
 
   .landing-header {
@@ -176,4 +195,84 @@ p {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+/* Loading  */
+.loading {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+@keyframes loading {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.loading > .square {
+  width: 20px;
+  height: 20px;
+  background: gray;
+}
+
+.s1 {
+  animation: loading 1s 0ms infinite ease;
+}
+.s2 {
+  animation: loading 1s 100ms infinite ease;
+}
+.s3 {
+  animation: loading 1s 200ms infinite ease;
+}
+
+/* services */
+
+.services {
+  margin-top: var(--padding);
+  background-color: var(--accent-clean);
+}
+.services-title {
+  text-transform: capitalize;
+  text-align: center;
+}
+.card {
+  padding: var(--padding);
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.card > h3 {
+  text-align: center;
+  text-transform: capitalize;
+}
+.card > div {
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--accent-clean);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+.card > div > svg {
+  width: 30px;
+  height: 30px;
 }
