@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Cart } from "./pages/Cart";
 import { Products } from "./pages/Products";
 import { About } from "./pages/About";
+import { Footer } from "./components/Footer";
 
 const apiUrl = "https://course-api.com/react-store-products";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </>
   );
 }

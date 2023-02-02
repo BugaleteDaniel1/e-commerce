@@ -11,12 +11,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const navHeight = navbar.current.getBoundingClientRect().height;
-    if (isNavbarOpen) {
-      navContainer.current.style.height = `${navHeight}px`;
-    } else {
-      navContainer.current.style.height = "0px";
+    if (window.innerWidth <= 440) {
+      if (isNavbarOpen) {
+        navContainer.current.style.height = `${navHeight}px`;
+      } else {
+        navContainer.current.style.height = "0px";
+      }
     }
-    console.log(navHeight);
   }, [isNavbarOpen]);
 
   const handleOpenNav = () => {
