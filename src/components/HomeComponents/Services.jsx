@@ -1,4 +1,4 @@
-import { cardsInfo } from "../assets/cardsInfo";
+import { cardsInfo } from "../../assets/cardsInfo";
 import { nanoid } from "nanoid";
 
 export const Services = () => {

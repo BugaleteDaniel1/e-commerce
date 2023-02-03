@@ -276,3 +276,49 @@ p {
   width: 30px;
   height: 30px;
 }
+
+/* Featured Items  */
+
+.featured-items {
+  margin-top: var(--padding);
+}
+.featured-items-container {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.featured-items-image {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 70%;
+  transition: filter var(--transition-time);
+}
+.featured-items-wrapper:hover .featured-items-link {
+  scale: 1;
+}
+.featured-items-wrapper:hover .featured-items-image {
+  filter: brightness(0.5);
+}
+/* .featured-items-title {
+} */
+.featured-items-link {
+  transition: scale var(--transition-time);
+  scale: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50%;
+  place-items: center;
+  place-content: center;
+  background: var(--accent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.featured-items-link > svg {
+  color: var(--background-color);
+}

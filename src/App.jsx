@@ -8,8 +8,6 @@ import { Products } from "./pages/Products";
 import { About } from "./pages/About";
 import { Footer } from "./components/Footer";
 
-const apiUrl = "https://course-api.com/react-store-products";
-
 function App() {
   const [count, setCount] = useState(0);
 
