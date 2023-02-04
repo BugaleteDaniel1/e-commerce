@@ -1,5 +1,6 @@
 :root {
   --background-color: #f7f7f7;
+  --featured-section-background: #c4d1ba;
   --primary: #333;
   --secondary: #6851a9;
   --accent: #8cc152;
@@ -32,7 +33,7 @@ h1 {
 }
 p {
   color: var(--secondary);
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .logo {
@@ -238,8 +239,8 @@ p {
 /* services */
 
 .services {
-  margin-top: var(--padding);
   background-color: var(--accent-clean);
+  padding: var(--padding);
 }
 .services-title {
   text-transform: capitalize;
@@ -281,11 +282,22 @@ p {
 
 .featured-items {
   margin-top: var(--padding);
+  background-color: var(--featured-section-background);
+  text-align: center;
+  padding: var(--padding);
 }
-.featured-items-container {
+
+.featured-items > h3 {
+  font-size: 1.5rem;
+}
+.featured-items-wrapper {
   position: relative;
   display: grid;
   place-items: center;
+}
+.featured-items-title {
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .featured-items-image {
@@ -300,8 +312,7 @@ p {
 .featured-items-wrapper:hover .featured-items-image {
   filter: brightness(0.5);
 }
-/* .featured-items-title {
-} */
+
 .featured-items-link {
   transition: scale var(--transition-time);
   scale: 0;
@@ -321,4 +332,50 @@ p {
 }
 .featured-items-link > svg {
   color: var(--background-color);
+}
+
+/*  About Page */
+
+.about {
+  padding: var(--padding);
+}
+
+.about-banner {
+  width: 70%;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.about-header {
+  position: relative;
+  display: block;
+}
+.about-animation {
+  position: absolute;
+  border-radius: 20px;
+  z-index: 0;
+  height: 70%;
+  width: 50%;
+  left: 30%;
+  top: 10%;
+  animation: about-animation 1 forwards 1s ease-in;
+}
+
+@keyframes about-animation {
+  20% {
+    rotate: 0deg;
+    translate: 0;
+  }
+  50% {
+    rotate: 90deg;
+  }
+  60% {
+    rotate: 90deg;
+    translate: 0 30%;
+  }
+  100% {
+    rotate: 90deg;
+    translate: 0 30%;
+    z-index: 0;
+  }
 }
