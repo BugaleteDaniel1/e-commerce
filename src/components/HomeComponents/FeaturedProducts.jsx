@@ -9,8 +9,6 @@ import { FaSearch } from "react-icons/fa";
 export const FeaturedProducts = () => {
   const { isData, proccesedData } = useHomeContext();
 
-  console.table("got data: ", isData, "data: ", proccesedData);
-
   const featuredItems = proccesedData.map((item) => {
     return (
       <div key={nanoid()}>

@@ -9,6 +9,7 @@
   --promos: #ff5a5f;
   --padding: 2rem;
   --transition-time: 0.3s;
+  --box-shadow: 1px 1px 20px rgb(0, 0, 0, 0.2);
 }
 
 #root {
@@ -351,6 +352,9 @@ p {
   display: block;
 }
 .about-animation {
+  rotate: 90deg;
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
   position: absolute;
   border-radius: 20px;
   z-index: 0;
@@ -363,18 +367,18 @@ p {
 
 @keyframes about-animation {
   20% {
-    rotate: 0deg;
+    rotate: 90deg;
     translate: 0;
   }
   50% {
-    rotate: 90deg;
+    rotate: 0deg;
   }
   60% {
-    rotate: 90deg;
+    rotate: 0deg;
     translate: 0 30%;
   }
   100% {
-    rotate: 90deg;
+    rotate: 0deg;
     translate: 0 30%;
     z-index: 0;
   }

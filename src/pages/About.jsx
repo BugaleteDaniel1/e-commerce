@@ -1,5 +1,5 @@
 import banner from "../assets/about-background.jpeg";
-import HeroImg2 from "../assets/about-img-2.jpeg";
+import HeroImg2 from "../assets/about-img-2.jpg";
 
 export const About = () => {
   return (

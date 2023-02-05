@@ -4,13 +4,16 @@ import App from "./App";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { HomeContext } from "./contexts/homeContext";
+import { ProductContext } from "./contexts/productsContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <HomeContext>
-        <App />
-      </HomeContext>
+      <ProductContext>
+        <HomeContext>
+          <App />
+        </HomeContext>
+      </ProductContext>
     </BrowserRouter>
   </React.StrictMode>
 );
