@@ -383,3 +383,23 @@ p {
     z-index: 0;
   }
 }
+.filters-colors-container {
+  display: flex;
+  gap: 10px;
+  margin-left: var(--padding);
+}
+
+.filters-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: var(--padding);
+}
+
+#categories,
+#companies {
+  padding: 5px;
+}
+.label {
+  font-weight: 700;
+}
