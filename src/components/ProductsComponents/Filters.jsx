@@ -1,11 +1,10 @@
 import { useProductsContext } from "../../contexts/productsContext";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-import { Loading } from "../Loading";
 
 export const Filters = () => {
   const { state, dispatch } = useProductsContext();
-  const { fetchedData } = state;
+  const { fetchedData, selectedCategory, selectedCompany } = state;
 
   const colorRef = useRef(null);
 
@@ -38,14 +37,6 @@ export const Filters = () => {
     );
   });
 
-  const selectColor = (color) => {
-    uniqueColsArr.map((item) => {
-      if (item === color) {
-        console.log(color);
-      }
-    });
-  };
-
   const FurnitureColors = fetchedData.map((item) => item.colors);
   const furnitureColorsArr = FurnitureColors.flat();
   const uniqueCols = new Set(furnitureColorsArr);
@@ -67,20 +58,47 @@ export const Filters = () => {
       ></div>
     );
   });
+  const selectColor = (color) => {
+    dispatch({ type: "SELECT_COLOR", payload: color });
+    // uniqueColsArr.map((item) => {
+    //   if (item === color) {
+    //     console.log(color);
+    //   }
+    // });
+  };
+  const selectCategory = (e) => {
+    const { value } = e.target;
+    dispatch({ type: "SELECT_CATEGORY", payload: value });
+  };
+
+  const selectCompany = (e) => {
+    const { value } = e.target;
+    dispatch({ type: "SELECT_COMPANY", payload: value });
+  };
 
   return (
     <form className="filters-form">
       <label className="label" htmlFor="categories">
         Category
       </label>
-      <select name="categories" id="categories">
-        <option value="">All</option>
+      <select
+        value={selectedCategory}
+        onChange={selectCategory}
+        name="categories"
+        id="categories"
+      >
+        <option value="All">All</option>
         {categoriesOptions}
       </select>
       <label className="label" htmlFor="companies">
         Company
       </label>
-      <select name="companies" id="companies">
+      <select
+        value={selectedCompany}
+        onChange={selectCompany}
+        name="companies"
+        id="companies"
+      >
         <option value="all">All</option>
         {uniqueComp}
       </select>
