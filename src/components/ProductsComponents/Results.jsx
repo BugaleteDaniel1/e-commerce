@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export const Results = () => {
   const { state } = useProductsContext();
   const { processedData, isDataLoaded } = state;
-  console.log(processedData);
 
   const filteredProducts = processedData.map((item) => {
     return (
@@ -18,7 +17,7 @@ export const Results = () => {
               src={item.image}
               alt="image of a bedroom"
             />
-            <Link className="featured-items-link" to="/products">
+            <Link className="featured-items-link" to={`/products/${item.id}`}>
               <FaSearch />
             </Link>
           </div>

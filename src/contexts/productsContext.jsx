@@ -9,7 +9,8 @@ const defaultState = {
   processedData: [],
   selectedCategory: "All",
   selectedCompany: "All",
-  selectedColor: "",
+  selectedColor: "All",
+  isProduct: true,
 };
 
 const reducer = (state, action) => {
@@ -22,27 +23,42 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === "SELECT_CATEGORY") {
-    const newProcessedData = state.fetchedData.filter(
+    const changedData = state.fetchedData.filter(
       (el) => el.category === action.payload
     );
+    let newProcessedData;
+    state.selectedCategory !== "ALL"
+      ? (newProcessedData = changedData)
+      : (newProcessedData = fetchedData);
+
+    let productState;
+    newProcessedData !== [] ? (productState = true) : (productState = false);
 
     return {
       ...state,
       selectedCategory: action.payload,
       processedData: newProcessedData,
+      isProduct: productState,
     };
   }
   if (action.type === "SELECT_COMPANY") {
     const newProcessedData = state.processedData.filter((el) => {
       return el.company === action.payload;
     });
+    let productState;
+    newProcessedData !== [] ? (productState = true) : (productState = false);
 
     return {
       ...state,
       selectedCompany: action.payload,
       processedData: newProcessedData,
+      isProduct: productState,
     };
   }
+  if (action.type === "SELECT_COLOR") {
+    return { ...state };
+  }
+
   throw new Error("'something's wrong i can feel it");
 };
 

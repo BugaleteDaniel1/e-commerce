@@ -59,12 +59,15 @@ export const Filters = () => {
     );
   });
   const selectColor = (color) => {
+    uniqueColsArr.map((item) => {
+      if (item === color) {
+        console.log(item);
+        colorRef.current.classList.add("selected-color");
+      } else {
+        colorRef.current.classList.remove("selected-color");
+      }
+    });
     dispatch({ type: "SELECT_COLOR", payload: color });
-    // uniqueColsArr.map((item) => {
-    //   if (item === color) {
-    //     console.log(color);
-    //   }
-    // });
   };
   const selectCategory = (e) => {
     const { value } = e.target;
@@ -74,6 +77,12 @@ export const Filters = () => {
   const selectCompany = (e) => {
     const { value } = e.target;
     dispatch({ type: "SELECT_COMPANY", payload: value });
+  };
+
+  const allColorsSquare = {
+    width: "20px",
+    height: "20px",
+    borderRadius: "5px",
   };
 
   return (
@@ -103,7 +112,10 @@ export const Filters = () => {
         {uniqueComp}
       </select>
       <h3 className="filters-colors-title">Colors </h3>
-      <div className="filters-colors-container">{colors}</div>
+      <div className="filters-colors-container">
+        <div className="selected-color">All</div>
+        {colors}
+      </div>
     </form>
   );
 };
