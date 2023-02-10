@@ -14,7 +14,10 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+        </Route>
         <Route path="/about" element={<About />} />
         <Route path="/products/">
           <Route index element={<Products />} />

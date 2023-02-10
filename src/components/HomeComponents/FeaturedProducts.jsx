@@ -3,9 +3,9 @@ import { useHomeContext } from "../../contexts/homeContext";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { FaSearch } from "react-icons/fa";
-{
-  Link;
-}
+// {
+//   Link;
+// }
 export const FeaturedProducts = () => {
   const { isData, proccesedData } = useHomeContext();
 
@@ -19,7 +19,7 @@ export const FeaturedProducts = () => {
               src={item.image}
               alt="image of a bedroom"
             />
-            <Link className="featured-items-link" to="/products">
+            <Link className="featured-items-link" to={`/products/${item.id}`}>
               <FaSearch />
             </Link>
           </div>

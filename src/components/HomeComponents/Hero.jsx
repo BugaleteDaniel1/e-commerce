@@ -12,7 +12,7 @@ export const Hero = () => {
           esse corrupti necessitatibus illum doloribus cumque, odio at
           voluptatum perferendis.
         </p>
-        <Link className="landing-btn btn" to="/products">
+        <Link className="landing-btn btn" to="/products/">
           SHOP NOW
         </Link>
       </header>
