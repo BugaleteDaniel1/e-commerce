@@ -27,9 +27,9 @@ const reducer = (state, action) => {
       (el) => el.category === action.payload
     );
     let newProcessedData;
-    state.selectedCategory !== "ALL"
-      ? (newProcessedData = changedData)
-      : (newProcessedData = fetchedData);
+    state.selectedCategory === "ALL"
+      ? (newProcessedData = fetchedData)
+      : (newProcessedData = changedData);
 
     let productState;
     newProcessedData !== [] ? (productState = true) : (productState = false);

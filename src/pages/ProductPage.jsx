@@ -2,18 +2,31 @@ import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../contexts/productsContext";
+import { useCartContext } from "../contexts/cartContext";
+// localStorage.clear();
+// const data = ;
+
 export const ProductPage = () => {
-  const [pageInfo, setPageInfo] = useState([]);
+  const [pageInfo, setPageInfo] = useState(
+    JSON.parse(localStorage.getItem("pageData")) || []
+  );
+  console.log(pageInfo);
+
   const [isTextFull, setIsTextFull] = useState(false);
+  console.log(isTextFull);
 
   const { id } = useParams();
   const { state } = useProductsContext();
   const { processedData } = state;
-
   useEffect(() => {
     const currentPage = processedData.filter((el) => el.id === id);
     setPageInfo(currentPage[0]);
   }, [pageInfo]);
+  useEffect(() => {
+    localStorage.setItem("pageData", JSON.stringify(pageInfo));
+  }, [pageInfo]);
+
+  const cartContext = useCartContext();
 
   const descriptionRef = useRef(null);
 
@@ -29,11 +42,13 @@ export const ProductPage = () => {
       const textShort = fullText.join(" ");
       descriptionRef.current.textContent = textShort;
     }
-  }, [isTextFull]);
+  });
 
   const enlargeText = () => {
     setIsTextFull(!isTextFull);
   };
+
+  const addToCart = () => {};
 
   return (
     <section className="product-page">
@@ -53,16 +68,15 @@ export const ProductPage = () => {
           <p ref={descriptionRef} className="product-page-description">
             {pageInfo.description}
           </p>
-          <button onClick={enlargeText} className="show-more-btn">
-            Show More...
-          </button>
-
+          <span role={"button"} onClick={enlargeText} className="show-more-btn">
+            {!isTextFull ? "...more" : "less"}
+          </span>
           <p className="product-page-product-info">Available: In Stock</p>
           <p className="product-page-product-info">SKU: {pageInfo.id}</p>
           <p className="product-page-product-info">Brand: {pageInfo.company}</p>
         </div>
       </div>
-      <Link className="btn" to="/cart">
+      <Link onClick={addToCart} className="btn" to="/cart">
         Add to Cart
       </Link>
     </section>

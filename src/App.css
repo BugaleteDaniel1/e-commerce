@@ -415,6 +415,8 @@ p {
 }
 .product-page-img {
   width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .product-page-title {
@@ -426,4 +428,14 @@ p {
 .product-page-product-info {
   color: var(--primary);
   font-size: 1.2rem;
+}
+
+.product-page-description {
+  display: inline;
+}
+.show-more-btn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  margin-left: 5px;
 }
