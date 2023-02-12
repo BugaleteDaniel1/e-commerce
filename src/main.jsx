@@ -6,7 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 import { HomeContext } from "./contexts/homeContext";
 import { ProductContext } from "./contexts/productsContext";
 import { CartContext } from "./contexts/cartContext";
-import { Cart } from "./pages/Cart";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

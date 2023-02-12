@@ -47,7 +47,6 @@ const reducer = (state, action) => {
     });
     let productState;
     newProcessedData !== [] ? (productState = true) : (productState = false);
-    console.log(newProcessedData);
     return {
       ...state,
       selectedCompany: action.payload,

@@ -3,17 +3,13 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../contexts/productsContext";
 import { useCartContext } from "../contexts/cartContext";
-// localStorage.clear();
-// const data = ;
 
 export const ProductPage = () => {
   const [pageInfo, setPageInfo] = useState(
     JSON.parse(localStorage.getItem("pageData")) || []
   );
-  console.log(pageInfo);
 
   const [isTextFull, setIsTextFull] = useState(false);
-  console.log(isTextFull);
 
   const { id } = useParams();
   const { state } = useProductsContext();
@@ -21,12 +17,15 @@ export const ProductPage = () => {
   useEffect(() => {
     const currentPage = processedData.filter((el) => el.id === id);
     setPageInfo(currentPage[0]);
-  }, [pageInfo]);
-  useEffect(() => {
-    localStorage.setItem("pageData", JSON.stringify(pageInfo));
-  }, [pageInfo]);
+    localStorage.setItem("pageData", JSON.stringify(currentPage[0]));
 
-  const cartContext = useCartContext();
+    return () => {
+      localStorage.clear();
+    };
+  }, []);
+
+  // const cartContext = useCartContext();
+  const { setCartContent } = useCartContext();
 
   const descriptionRef = useRef(null);
 
@@ -48,7 +47,9 @@ export const ProductPage = () => {
     setIsTextFull(!isTextFull);
   };
 
-  const addToCart = () => {};
+  const addToCart = (storage) => {
+    setCartContent(storage);
+  };
 
   return (
     <section className="product-page">
@@ -76,7 +77,11 @@ export const ProductPage = () => {
           <p className="product-page-product-info">Brand: {pageInfo.company}</p>
         </div>
       </div>
-      <Link onClick={addToCart} className="btn" to="/cart">
+      <Link
+        onClick={() => addToCart(JSON.parse(localStorage.getItem("pageData")))}
+        className="btn"
+        to="/cart"
+      >
         Add to Cart
       </Link>
     </section>
