@@ -3,30 +3,27 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../contexts/productsContext";
 import { useCartContext } from "../contexts/cartContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const ProductPage = () => {
-  const [pageInfo, setPageInfo] = useState(
-    JSON.parse(localStorage.getItem("pageData")) || []
-  );
-
+  const [pageInfo, setPageInfo] = useLocalStorage("pageData", []);
+  const [page, setPage] = useState(pageInfo);
   const [isTextFull, setIsTextFull] = useState(false);
 
   const { id } = useParams();
   const { state } = useProductsContext();
   const { processedData } = state;
+
   useEffect(() => {
     const currentPage = processedData.filter((el) => el.id === id);
-    setPageInfo(currentPage[0]);
-    localStorage.setItem("pageData", JSON.stringify(currentPage[0]));
+    currentPage?.[0] ? setPageInfo(currentPage[0]) : setPageInfo(pageInfo);
+  }, [page]);
 
-    return () => {
-      localStorage.clear();
-    };
-  }, []);
+  useEffect(() => {
+    setPage(pageInfo);
+  }, [pageInfo]);
 
-  // const cartContext = useCartContext();
   const { setCartContent } = useCartContext();
-
   const descriptionRef = useRef(null);
 
   useEffect(() => {
@@ -47,8 +44,8 @@ export const ProductPage = () => {
     setIsTextFull(!isTextFull);
   };
 
-  const addToCart = (storage) => {
-    setCartContent(storage);
+  const addToCart = (addedToCartItem) => {
+    setCartContent(addedToCartItem);
   };
 
   return (
@@ -77,11 +74,7 @@ export const ProductPage = () => {
           <p className="product-page-product-info">Brand: {pageInfo.company}</p>
         </div>
       </div>
-      <Link
-        onClick={() => addToCart(JSON.parse(localStorage.getItem("pageData")))}
-        className="btn"
-        to="/cart"
-      >
+      <Link onClick={() => addToCart(pageInfo)} className="btn" to="/cart">
         Add to Cart
       </Link>
     </section>

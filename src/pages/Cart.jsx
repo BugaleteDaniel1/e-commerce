@@ -1,29 +1,22 @@
 import { useCartContext } from "../contexts/cartContext";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const Cart = () => {
-  const { isCartEmpty, setCartContent, cartContent, setIsCartEmpty } =
-    useCartContext();
-  console.log(cartContent);
-  const [cartItems, setCartItems] = useState();
+  const {
+    isCartEmpty,
+    setCartContent,
+    cartContent,
+    setIsCartEmpty,
+    cartItems,
+  } = useCartContext();
 
-  useEffect(() => {
-    setCartItems((prevCartItems) => {
-      prevCartItems === null ? prevCartItems : [{ ...prevCartItems }],
-        { cartContent };
-
-      // return newCartContent;
-    });
-  }, [cartContent]);
-  // const [cartItems, setCartItems] = useLocalStorage("cart-items", []);
   // console.log(cartItems);
 
   return (
     <>
       {isCartEmpty ? (
-        `cart is empty`
+        <h1>Cart is Empty, consider to fill it</h1>
       ) : (
         <>
           <Link to="/products">BACK TO PRODUCTS</Link>
