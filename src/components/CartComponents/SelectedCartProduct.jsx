@@ -2,9 +2,8 @@ import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../../contexts/cartContext";
 
 export const SelectedCartProduct = () => {
-  const { cartItems: products } = useCartContext();
-  console.log(products);
-
+  const { state, dispatch } = useCartContext();
+  const { cartContent: products } = state;
   return (
     <section className="selected-products">
       {products.map((prd) => {
@@ -22,7 +21,12 @@ export const SelectedCartProduct = () => {
               <div className="counter-children">1</div>
               <div className="counter-children">-</div>
             </div>
-            <div className="remove">
+            <div
+              onClick={() =>
+                dispatch({ type: "REMOVE_THIS_ITEM", payload: prd.id })
+              }
+              className="remove"
+            >
               <FaTrash />
             </div>
           </div>
