@@ -13,7 +13,7 @@
   background: var(--accent);
   display: flex;
   flex-direction: column;
-  width: 60%;
+  max-width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -43,4 +43,18 @@
 .card > div > svg {
   width: 30px;
   height: 30px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

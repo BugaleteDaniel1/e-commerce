@@ -27,9 +27,9 @@
     display: flex;
     justify-content: space-between;
     gap: var(--padding);
-    height: 80vh;
   }
   .landingP {
+    margin-top: 0;
     line-height: 1.5;
   }
   .landingTitle {
@@ -47,7 +47,6 @@
     border-radius: 10px;
     z-index: 2;
     width: 100%;
-    height: 100%;
     object-fit: cover;
   }
   .animation {
@@ -71,5 +70,38 @@
     align-items: flex-start;
     max-width: 50%;
     text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landingPage {
+    padding: calc(var(--padding) * 2);
+    align-items: center;
+    height: 50%;
+  }
+
+  .homeImg {
+    max-height: 30rem;
+  }
+
+  .landingP {
+    font-size: 1rem;
+  }
+  .landingTitle {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1440px) {
+  .landingTitle {
+    font-size: 6rem;
+  }
+  .homeImg {
+    width: 90%;
+  }
+  .animation {
+    width: 50%;
+  }
+  .imageContainer {
+    margin-left: calc(var(--padding) * 2);
   }
 }

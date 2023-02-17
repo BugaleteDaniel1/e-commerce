@@ -24,7 +24,7 @@ export const Services = () => {
           quas ipsum voluptatum nostrum explicabo debitis id veniam tenetur at.
         </p>
       </header>
-      <main>{cards}</main>
+      <main className={ServicesCSS.main}>{cards}</main>
     </article>
   );
 };

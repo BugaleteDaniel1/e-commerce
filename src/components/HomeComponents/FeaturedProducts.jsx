@@ -10,7 +10,7 @@ export const FeaturedProducts = () => {
 
   const featuredItems = proccesedData.map((item) => {
     return (
-      <div key={nanoid()}>
+      <div className={FeaturedProdsCss.prodContainer} key={nanoid()}>
         <header className={FeaturedProdsCss.featuredItemsContainer}>
           <div className={FeaturedProdsCss.featuredItemsWrapper}>
             <img
@@ -42,7 +42,7 @@ export const FeaturedProducts = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
             animi qui est quas odio quia.
           </p>
-          <div>{featuredItems}</div>
+          <div className={FeaturedProdsCss.itemsWrapper}>{featuredItems}</div>
         </article>
       )}
     </div>

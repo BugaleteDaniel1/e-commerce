@@ -15,7 +15,7 @@ export const SelectedCartProduct = () => {
             <div className={CartTopCSS.prodInfo}>
               <img src={prd.image} alt="a image of the added in cart product" />
               <div>
-                <h4>{prd.name}</h4>
+                <h4 className={CartTopCSS.heading}>{prd.name}</h4>
                 <span>{formatCurrency(prd.price)}</span>
               </div>
             </div>

@@ -53,3 +53,15 @@
 .featuredItemsLink > svg {
   color: var(--background-color);
 }
+@media (min-width: 700px) {
+  .itemsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .itemsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
