@@ -1,0 +1,23 @@
+@import url(../variables.module.css);
+
+.selectedProducts {
+  border-bottom: 1px solid var(--primary);
+}
+.prodsContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--padding);
+}
+.prodInfo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.prodInfo > img {
+  width: 50%;
+  height: 5rem;
+  aspect-ratio: 16/9;
+  margin-right: 20px;
+  object-fit: cover;
+  border-radius: 5px;
+}

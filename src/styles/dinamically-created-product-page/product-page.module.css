@@ -1,0 +1,32 @@
+@import url(../variables.module.css);
+
+.productPage {
+  padding: var(--padding);
+}
+.productImg {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.productTitle {
+  text-transform: uppercase;
+}
+.productPrice {
+  font-size: 2rem;
+  margin: var(--padding) 0;
+}
+.productInfo {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.productDescription {
+  display: inline;
+}
+.showMore {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  margin-left: 5px;
+}

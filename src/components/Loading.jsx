@@ -1,9 +1,11 @@
+import LoadingCSS from "../styles/loading.module.css";
+
 export const Loading = () => {
   return (
-    <div className="loading">
-      <div className="square s1"></div>
-      <div className="square s2"></div>
-      <div className="square s3"></div>
+    <div className={LoadingCSS.loading}>
+      <div className={LoadingCSS.s1}></div>
+      <div className={LoadingCSS.s2}></div>
+      <div className={LoadingCSS.s3}></div>
     </div>
   );
 };

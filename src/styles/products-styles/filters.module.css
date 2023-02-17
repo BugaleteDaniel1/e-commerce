@@ -1,0 +1,27 @@
+@import url(../variables.module.css);
+
+.filtersColorsContainer {
+  display: flex;
+  gap: 10px;
+  margin-left: var(--padding);
+}
+
+.filtersForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: var(--padding);
+}
+
+#categories,
+#companies {
+  padding: 5px;
+}
+.label {
+  font-weight: 700;
+}
+
+.selectedColor {
+  border: 1px solid #333;
+  padding: 5px;
+}

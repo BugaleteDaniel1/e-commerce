@@ -3,7 +3,7 @@ import { Results } from "../components/ProductsComponents/Results";
 
 export const Products = () => {
   return (
-    <div className="products-page">
+    <div>
       <Filters />
       <Results />
     </div>

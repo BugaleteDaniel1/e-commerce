@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../contexts/cartContext";
-
+import BottomCartCSS from "../../styles/cart-styles/cart-total.module.css";
+import { formatCurrency } from "../../hooks/formatNumber";
 export const CartTotal = () => {
   const { state, dispatch } = useCartContext();
   const { cartTotalPrice } = state;
@@ -11,23 +12,23 @@ export const CartTotal = () => {
   };
 
   return (
-    <section className="cart-total">
-      <header className="total-header">
-        <Link className="link-btn" to="/products">
+    <section className={BottomCartCSS.cartTotal}>
+      <header className={BottomCartCSS.totalHeader}>
+        <Link className={BottomCartCSS.btn} to="/products">
           Continue Shopping
         </Link>
-        <button onClick={removeAllItems} className="btn">
-          Clear Shopping Cart
-        </button>
+        <button onClick={removeAllItems}>Clear Shopping Cart</button>
       </header>
 
-      <div className="total-main">
-        <div className="total-main-top">
-          <div>Subtotal: ${cartTotalPrice}</div>
-          <div>Shipping: ${shippingCost}</div>
+      <div className={BottomCartCSS.totalMain}>
+        <div className={BottomCartCSS.totalTop}>
+          <div>Subtotal: {formatCurrency(cartTotalPrice)}</div>
+          <div>Shipping: {formatCurrency(shippingCost)}</div>
         </div>
-        <div className="total-main-bottom">
-          <div>Total Price: ${cartTotalPrice + shippingCost}</div>
+        <div className={BottomCartCSS.totalBottom}>
+          <div>
+            Total Price: {formatCurrency(cartTotalPrice + shippingCost)}
+          </div>
         </div>
       </div>
     </section>

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useProductsContext } from "../contexts/productsContext";
 import { useCartContext } from "../contexts/cartContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { formatCurrency } from "../hooks/formatNumber";
+import ProductPageCSS from "../styles/dinamically-created-product-page/product-page.module.css";
 
 export const ProductPage = () => {
   const [pageInfo, setPageInfo] = useLocalStorage("pageData", []);
@@ -23,7 +25,9 @@ export const ProductPage = () => {
     setPage(pageInfo);
   }, [pageInfo]);
 
-  const { setCartContent } = useCartContext();
+  const { setCartContent, state: cartState } = useCartContext();
+  const { cartContent } = cartState;
+
   const descriptionRef = useRef(null);
 
   useEffect(() => {
@@ -48,44 +52,61 @@ export const ProductPage = () => {
     setCartContent(addedToCartItem);
   };
 
+  let isProductInCart = false;
+  cartContent.map((el) => {
+    return el.id === pageInfo.id
+      ? (isProductInCart = true)
+      : (isProductInCart = false);
+  });
+  console.log(isProductInCart);
+
   return (
     <>
-      <Link className="not-rounded-left" to="/products">
+      <Link className="rounded-right" to="/products">
         BACK TO PRODUCTS
       </Link>
-      <section className="product-page">
-        <div className="prodcts">
+      <section className={ProductPageCSS.productPage}>
+        <div>
           <header>
             <img
-              className="product-page-img"
+              className={ProductPageCSS.productImg}
               src={pageInfo.image}
               alt="a page of an product"
             />
           </header>
           <div className="product-page-main">
-            <h2 className="product-page-title">{pageInfo.name}</h2>
+            <h2 className={ProductPageCSS.productTitle}>{pageInfo.name}</h2>
             <div className="rating">5stars</div>
-            <div className="product-page-price">${pageInfo.price}</div>
-            <p ref={descriptionRef} className="product-page-description">
+            <div className={ProductPageCSS.productPrice}>
+              {formatCurrency(pageInfo.price)}
+            </div>
+            <p
+              ref={descriptionRef}
+              className={ProductPageCSS.productDescription}
+            >
               {pageInfo.description}
             </p>
             <span
               role={"button"}
               onClick={enlargeText}
-              className="show-more-btn"
+              className={ProductPageCSS.showMore}
             >
               {!isTextFull ? "...more" : "less"}
             </span>
-            <p className="product-page-product-info">Available: In Stock</p>
-            <p className="product-page-product-info">SKU: {pageInfo.id}</p>
-            <p className="product-page-product-info">
+            <p className={ProductPageCSS.productInfo}>Available: In Stock</p>
+            <p className={ProductPageCSS.productInfo}>SKU: {pageInfo.id}</p>
+            <p className={ProductPageCSS.productInfo}>
               Brand: {pageInfo.company}
             </p>
           </div>
         </div>
-        <Link onClick={() => addToCart(pageInfo)} className="btn" to="/cart">
-          Add to Cart
-        </Link>
+        {isProductInCart ? (
+          <Link to="/cart">Go To Cart</Link>
+        ) : (
+          <Link onClick={() => addToCart(pageInfo)} className="btn" to="/cart">
+            Add to Cart
+          </Link>
+        )}
       </section>
     </>
   );

@@ -1,0 +1,48 @@
+@import url(../variables.module.css);
+
+.about {
+  padding: var(--padding);
+}
+
+.aboutBanner {
+  width: 70%;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.aboutHeader {
+  position: relative;
+  display: block;
+}
+.aboutAnimation {
+  rotate: 90deg;
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
+  position: absolute;
+  border-radius: 20px;
+  z-index: 0;
+  height: 70%;
+  width: 50%;
+  left: 30%;
+  top: 10%;
+  animation: aboutAnimation 1 forwards 1s ease-in;
+}
+
+@keyframes aboutAnimation {
+  20% {
+    rotate: 90deg;
+    translate: 0;
+  }
+  50% {
+    rotate: 0deg;
+  }
+  60% {
+    rotate: 0deg;
+    translate: 0 30%;
+  }
+  100% {
+    rotate: 0deg;
+    translate: 0 30%;
+    z-index: 0;
+  }
+}

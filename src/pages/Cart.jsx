@@ -9,11 +9,11 @@ export const Cart = () => {
 
   return (
     <>
-      <Link className="link-btn not-rounded-left" to="/products">
+      <Link className="rounded-right" to="/products">
         GO TO PRODUCTS
       </Link>
       {cartContent.length === 0 ? (
-        <h1>Cart is Empty</h1>
+        <h1 style={{ textAlign: "center" }}>Cart is Empty</h1>
       ) : (
         <section className="cart">
           <SelectedCartProduct />

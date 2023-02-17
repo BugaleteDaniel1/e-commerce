@@ -1,0 +1,94 @@
+@import url(../variables.module.css);
+
+.btn {
+  padding: 10px 20px;
+  display: inline-block;
+  width: 6rem;
+  text-align: center;
+  border-radius: 10px;
+}
+h1 {
+  color: var(--primary);
+  word-spacing: 0.75rem;
+  letter-spacing: 0.1rem;
+}
+p {
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.logo {
+  color: var(--primary);
+}
+
+.navBar {
+  box-shadow: 0px 3px 5px rgb(0, 0, 0, 0.1);
+}
+
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.navHamburger {
+  cursor: pointer;
+}
+.navHamburger > svg {
+  fill: var(--primary);
+}
+.navLinksContainer {
+  overflow: hidden;
+  transition: height var(--transition-time);
+}
+.navLinks {
+  margin-left: var(--padding);
+}
+.navLinks > li {
+  list-style: none;
+  padding: 5px 0;
+  transition: padding var(--transition-time);
+}
+.navLinks > li:active {
+  padding-left: 1rem;
+}
+.navA {
+  margin-left: 10px;
+  background: transparent;
+  color: var(--primary);
+}
+.navA:focus {
+  color: var(--accent);
+}
+.navA > svg {
+  fill: var(--primary);
+}
+@media (min-width: 440px) {
+  li > svg {
+    display: none;
+  }
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navHamburger {
+    display: none;
+  }
+  .navLinks {
+    display: flex;
+    gap: 10px;
+  }
+  .navLinks > li {
+    text-align: center;
+  }
+  .navLinksContainer {
+    height: 100%;
+  }
+  .navLinks > li:active {
+    padding-left: 0;
+  }
+  .navLinks:last-child {
+    margin-right: var(--padding);
+  }
+}

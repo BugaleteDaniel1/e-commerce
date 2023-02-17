@@ -1,0 +1,14 @@
+:root {
+  --background-color: #f7f7f7;
+  --featured-section-background: #c4d1ba;
+  --primary: #333;
+  --secondary: #6851a9;
+  --accent: #8cc152;
+  --accent-clean: #dfffbc;
+  --attention-grab: #ef7cac;
+  --promos: #ff5a5f;
+  --padding: 2rem;
+  --transition-time: 0.3s;
+  --box-shadow: 1px 1px 20px rgb(0, 0, 0, 0.2);
+  --img-border-radius: 10px;
+}

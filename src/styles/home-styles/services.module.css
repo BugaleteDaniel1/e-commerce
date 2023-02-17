@@ -1,0 +1,46 @@
+@import url(../variables.module.css);
+
+.services {
+  background-color: var(--accent-clean);
+  padding: var(--padding);
+}
+.servicesTitle {
+  text-transform: capitalize;
+  text-align: center;
+}
+.card {
+  padding: calc(var(--padding) / 2);
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.card > h3 {
+  text-align: center;
+  text-transform: capitalize;
+}
+.card > p {
+  font-size: 0.75rem;
+  margin: 0;
+  color: white;
+}
+.card > div {
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--accent-clean);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+.card > div > svg {
+  width: 30px;
+  height: 30px;
+}

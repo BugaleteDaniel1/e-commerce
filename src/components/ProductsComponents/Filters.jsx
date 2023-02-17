@@ -1,6 +1,7 @@
 import { useProductsContext } from "../../contexts/productsContext";
 import { useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
+import FiltersCSS from "../../styles/products-styles/filters.module.css";
 
 export const Filters = () => {
   const { state, dispatch } = useProductsContext();
@@ -86,34 +87,34 @@ export const Filters = () => {
   };
 
   return (
-    <form className="filters-form">
-      <label className="label" htmlFor="categories">
+    <form className={FiltersCSS.filtersForm}>
+      <label className={FiltersCSS.label} htmlFor="categories">
         Category
       </label>
       <select
         value={selectedCategory}
         onChange={selectCategory}
         name="categories"
-        id="categories"
+        id={FiltersCSS.categories}
       >
         <option value="All">All</option>
         {categoriesOptions}
       </select>
-      <label className="label" htmlFor="companies">
+      <label className={FiltersCSS.label} htmlFor="companies">
         Company
       </label>
       <select
         value={selectedCompany}
         onChange={selectCompany}
         name="companies"
-        id="companies"
+        id={FiltersCSS.companies}
       >
         <option value="all">All</option>
         {uniqueComp}
       </select>
-      <h3 className="filters-colors-title">Colors </h3>
-      <div className="filters-colors-container">
-        <div className="selected-color">All</div>
+      <h3 className={FiltersCSS.filtersColorsTitle}>Colors </h3>
+      <div className={FiltersCSS.filtersColorsContainer}>
+        <div className={FiltersCSS.selectedColor}>All</div>
         {colors}
       </div>
     </form>

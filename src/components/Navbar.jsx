@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { links } from "../assets/links";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
+import NavbarCSS from "../styles/navbar-styles/navbar.module.css";
 
 export const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -28,22 +29,22 @@ export const Navbar = () => {
     return (
       <li key={nanoid()}>
         {link.icon}
-        <Link className="nav-a" to={link.url}>
+        <Link className={NavbarCSS.navA} to={link.url}>
           {link.name}
         </Link>
       </li>
     );
   });
   return (
-    <nav className="nav-bar">
-      <div className="nav-header">
-        <div className="nav-logo">Logo</div>
-        <div onClick={handleOpenNav} className="nav-hamburger">
+    <nav className={NavbarCSS.navBar}>
+      <div className={NavbarCSS.navHeader}>
+        <div className={NavbarCSS.navLogo}>Logo</div>
+        <div onClick={handleOpenNav} className={NavbarCSS.navHamburger}>
           <FaBars />
         </div>
       </div>
-      <div ref={navContainer} className="nav-links-container">
-        <ul ref={navbar} className="nav-links">
+      <div ref={navContainer} className={NavbarCSS.navLinksContainer}>
+        <ul ref={navbar} className={NavbarCSS.navLinks}>
           {navLinks}
         </ul>
       </div>

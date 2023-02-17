@@ -1,31 +1,34 @@
 import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../../contexts/cartContext";
+import { formatCurrency } from "../../hooks/formatNumber";
+import CartTopCSS from "../../styles/cart-styles/selected-products.module.css";
 
 export const SelectedCartProduct = () => {
   const { state, dispatch } = useCartContext();
   const { cartContent: products } = state;
+
   return (
-    <section className="selected-products">
+    <section className={CartTopCSS.selectedProducts}>
       {products.map((prd) => {
         return (
-          <div key={prd.id} className="prods-container">
-            <div className="prod-info">
+          <div key={prd.id} className={CartTopCSS.prodsContainer}>
+            <div className={CartTopCSS.prodInfo}>
               <img src={prd.image} alt="a image of the added in cart product" />
-              <div className="info-abt-prd">
-                <h4 className="cart-prd-title">{prd.name}</h4>
-                <span className="cart-prd-price">${prd.price}</span>
+              <div>
+                <h4>{prd.name}</h4>
+                <span>{formatCurrency(prd.price)}</span>
               </div>
             </div>
-            <div className="counter">
-              <div className="counter-children">+</div>
-              <div className="counter-children">1</div>
-              <div className="counter-children">-</div>
-            </div>
+            {/* <div className={CartTopCSS.counter}>
+              <div className={CartTopCSS.counterChildren}>+</div>
+              <div className={CartTopCSS.counterChildren}>1</div>
+              <div className={CartTopCSS.counterChildren}>-</div>
+            </div> */}
             <div
               onClick={() =>
                 dispatch({ type: "REMOVE_THIS_ITEM", payload: prd.id })
               }
-              className="remove"
+              className={CartTopCSS.remove}
             >
               <FaTrash />
             </div>

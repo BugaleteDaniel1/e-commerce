@@ -1,23 +1,24 @@
 import banner from "../assets/about-background.jpeg";
 import HeroImg2 from "../assets/about-img-2.jpg";
+import AboutCSS from "../styles/about-styles/about.module.css";
 
 export const About = () => {
   return (
     <div>
-      <section className="about">
-        <header className="about-header">
+      <section className={AboutCSS.about}>
+        <header className={AboutCSS.aboutHeader}>
           <img
-            className="about-banner"
+            className={AboutCSS.aboutBanner}
             src={banner}
             alt="a picture of a bedroom interior"
           />
           <img
             src={HeroImg2}
             alt="another picture of an "
-            className="about-animation"
+            className={AboutCSS.aboutAnimation}
           />
         </header>
-        <h2 className="about-title">Our Story</h2>
+        <h2 className={AboutCSS.aboutTitle}>Our Story</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
           reiciendis nisi maiores quis officia ad animi, laudantium molestias

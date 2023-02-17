@@ -1,0 +1,55 @@
+@import url(../variables.module.css);
+
+.featuredItems {
+  margin-top: var(--padding);
+  background-color: var(--featured-section-background);
+  text-align: center;
+  padding: var(--padding);
+}
+
+.featuredItems > h3 {
+  font-size: 1.5rem;
+}
+.featuredItemsWrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.featuredItemsTitle {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.featuredItemsImage {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 70%;
+  transition: filter var(--transition-time);
+}
+.featuredItemsWrapper:hover .featuredItemsLink {
+  scale: 1;
+}
+.featuredItemsWrapper:hover .featuredItemsImage {
+  filter: brightness(0.5);
+}
+
+.featuredItemsLink {
+  transition: scale var(--transition-time);
+  scale: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 50%;
+  place-items: center;
+  place-content: center;
+  background: var(--accent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.featuredItemsLink > svg {
+  color: var(--background-color);
+}

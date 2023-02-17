@@ -3,28 +3,30 @@ import { useHomeContext } from "../../contexts/homeContext";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { FaSearch } from "react-icons/fa";
-// {
-//   Link;
-// }
+import FeaturedProdsCss from "../../styles/home-styles/featuredProducts.module.css";
+
 export const FeaturedProducts = () => {
   const { isData, proccesedData } = useHomeContext();
 
   const featuredItems = proccesedData.map((item) => {
     return (
       <div key={nanoid()}>
-        <header className="featured-items-container">
-          <div className="featured-items-wrapper">
+        <header className={FeaturedProdsCss.featuredItemsContainer}>
+          <div className={FeaturedProdsCss.featuredItemsWrapper}>
             <img
-              className="featured-items-image"
+              className={FeaturedProdsCss.featuredItemsImage}
               src={item.image}
               alt="image of a bedroom"
             />
-            <Link className="featured-items-link" to={`/products/${item.id}`}>
+            <Link
+              className={FeaturedProdsCss.featuredItemsLink}
+              to={`/products/${item.id}`}
+            >
               <FaSearch />
             </Link>
           </div>
         </header>
-        <h4 className="featured-items-title">{item.name}</h4>
+        <h4 className={FeaturedProdsCss.featuredItemsTitle}>{item.name}</h4>
       </div>
     );
   });
@@ -34,7 +36,7 @@ export const FeaturedProducts = () => {
       {!isData ? (
         <Loading />
       ) : (
-        <article className="featured-items">
+        <article className={FeaturedProdsCss.featuredItems}>
           <h3>Need a new Bedroom?</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque

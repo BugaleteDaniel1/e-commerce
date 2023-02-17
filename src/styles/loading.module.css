@@ -1,0 +1,36 @@
+.loading {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+@keyframes loading {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.loading > div {
+  width: 20px;
+  height: 20px;
+  background: gray;
+}
+
+.s1 {
+  animation: loading 1s 0ms infinite ease;
+}
+.s2 {
+  animation: loading 1s 100ms infinite ease;
+}
+.s3 {
+  animation: loading 1s 200ms infinite ease;
+}
