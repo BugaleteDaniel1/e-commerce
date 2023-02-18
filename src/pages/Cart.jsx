@@ -15,7 +15,18 @@ export const Cart = () => {
         <FaBoxOpen />
       </Link>
       {cartContent.length === 0 ? (
-        <h1 style={{ textAlign: "center" }}>Cart is Empty</h1>
+        <div style={{ display: "grid", placeItems: "center" }}>
+          <h1 style={{ textAlign: "center" }}>Cart is Empty</h1>
+          <Link
+            style={{
+              textAlign: "center",
+              width: "100px",
+            }}
+            to="/products"
+          >
+            Fill IT
+          </Link>
+        </div>
       ) : (
         <section className={CartCSS.container}>
           <SelectedCartProduct />
