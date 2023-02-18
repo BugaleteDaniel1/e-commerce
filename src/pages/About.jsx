@@ -18,15 +18,17 @@ export const About = () => {
             className={AboutCSS.aboutAnimation}
           />
         </header>
-        <h2 className={AboutCSS.aboutTitle}>Our Story</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-          reiciendis nisi maiores quis officia ad animi, laudantium molestias
-          aspernatur. Ex assumenda, magni quas odio incidunt corrupti illum hic?
-          Nobis, quaerat fugiat? Maiores itaque aut eius obcaecati iusto nisi
-          distinctio amet voluptates, saepe modi odit error rem animi deleniti
-          aliquam tempore!
-        </p>
+        <div className={AboutCSS.main}>
+          <h2 className={AboutCSS.aboutTitle}>Our Story</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+            reiciendis nisi maiores quis officia ad animi, laudantium molestias
+            aspernatur. Ex assumenda, magni quas odio incidunt corrupti illum
+            hic? Nobis, quaerat fugiat? Maiores itaque aut eius obcaecati iusto
+            nisi distinctio amet voluptates, saepe modi odit error rem animi
+            deleniti aliquam tempore!
+          </p>
+        </div>
       </section>
     </div>
   );

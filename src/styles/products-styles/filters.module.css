@@ -25,3 +25,9 @@
   border: 1px solid #333;
   padding: 5px;
 }
+
+@media (min-width: 1024px) {
+  .filtersForm {
+    padding: 0;
+  }
+}

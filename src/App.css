@@ -3,6 +3,7 @@ button {
   width: 6rem;
   text-align: center;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 a {
@@ -41,8 +42,17 @@ p {
   padding-top: 0;
 }
 .rounded-right {
+  position: fixed;
+  top: 90%;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin-top: 10px;
   text-align: center;
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+  .rounded-right {
+    display: none;
+  }
 }

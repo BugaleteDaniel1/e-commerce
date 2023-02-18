@@ -30,3 +30,31 @@
   display: inline-block;
   margin-left: 5px;
 }
+@media (min-width: 768px) {
+  .productTitle {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .productPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+    place-items: center;
+  }
+  .container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: var(--padding);
+  }
+  .productInfo {
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--primary);
+    text-transform: capitalize;
+    text-align: center;
+  }
+}

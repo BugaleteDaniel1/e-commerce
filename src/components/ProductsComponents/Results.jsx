@@ -10,7 +10,7 @@ export const Results = () => {
 
   const filteredProducts = processedData.map((item) => {
     return (
-      <div key={item.id}>
+      <div className={ResultsCSS.result} key={item.id}>
         <header className={ResultsCSS.featuredItemsContainer}>
           <div className={ResultsCSS.featuredItemsWrapper}>
             <img
@@ -31,5 +31,13 @@ export const Results = () => {
     );
   });
 
-  return <>{!isDataLoaded ? <Loading /> : <>{filteredProducts}</>}</>;
+  return (
+    <>
+      {!isDataLoaded ? (
+        <Loading />
+      ) : (
+        <div className={ResultsCSS.container}>{filteredProducts}</div>
+      )}
+    </>
+  );
 };

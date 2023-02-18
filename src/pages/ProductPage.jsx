@@ -6,6 +6,7 @@ import { useCartContext } from "../contexts/cartContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { formatCurrency } from "../hooks/formatNumber";
 import ProductPageCSS from "../styles/dinamically-created-product-page/product-page.module.css";
+import { FaBoxOpen } from "react-icons/fa";
 
 export const ProductPage = () => {
   const [pageInfo, setPageInfo] = useLocalStorage("pageData", []);
@@ -63,10 +64,10 @@ export const ProductPage = () => {
   return (
     <>
       <Link className="rounded-right" to="/products">
-        BACK TO PRODUCTS
+        <FaBoxOpen />
       </Link>
-      <section className={ProductPageCSS.productPage}>
-        <div>
+      <section>
+        <div className={ProductPageCSS.productPage}>
           <header>
             <img
               className={ProductPageCSS.productImg}
@@ -93,20 +94,33 @@ export const ProductPage = () => {
             >
               {!isTextFull ? "...more" : "less"}
             </span>
-            <p className={ProductPageCSS.productInfo}>Available: In Stock</p>
-            <p className={ProductPageCSS.productInfo}>SKU: {pageInfo.id}</p>
-            <p className={ProductPageCSS.productInfo}>
-              Brand: {pageInfo.company}
-            </p>
+            <div className={ProductPageCSS.container}>
+              <p className={ProductPageCSS.productInfo}>
+                Available:
+                <br /> In Stock
+              </p>
+              <p className={ProductPageCSS.productInfo}>
+                SKU:
+                <br /> {pageInfo.id}
+              </p>
+              <p className={ProductPageCSS.productInfo}>
+                Brand:
+                <br /> {pageInfo.company}
+              </p>
+            </div>
+            {isProductInCart ? (
+              <Link to="/cart">Go To Cart</Link>
+            ) : (
+              <Link
+                onClick={() => addToCart(pageInfo)}
+                className="btn"
+                to="/cart"
+              >
+                Add to Cart
+              </Link>
+            )}
           </div>
         </div>
-        {isProductInCart ? (
-          <Link to="/cart">Go To Cart</Link>
-        ) : (
-          <Link onClick={() => addToCart(pageInfo)} className="btn" to="/cart">
-            Add to Cart
-          </Link>
-        )}
       </section>
     </>
   );

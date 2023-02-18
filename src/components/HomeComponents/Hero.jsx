@@ -4,10 +4,10 @@ import HeroCss from "../../styles/home-styles/hero.module.css";
 
 export const Hero = () => {
   return (
-    <section className={HeroCss.landingPage}>
-      <header className={HeroCss.landingHeader}>
-        <h1 className={HeroCss.landingTitle}>Design your comfort zone</h1>
-        <p className={HeroCss.landingP}>
+    <section className={HeroCss.container}>
+      <header className={HeroCss.header}>
+        <h1 className={HeroCss.title}>Design your comfort zone</h1>
+        <p className={HeroCss.paragraph}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sunt
           libero id? Tempore facilis voluptate id expedita porro? Laborum porro
           esse corrupti necessitatibus illum doloribus cumque, odio at
@@ -19,7 +19,7 @@ export const Hero = () => {
       </header>
       <div className={HeroCss.imageContainer}>
         <img
-          className={HeroCss.homeImg}
+          className={HeroCss.img}
           src={HeroImg}
           alt="an image of an interior of a house"
         />

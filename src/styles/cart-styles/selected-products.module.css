@@ -1,17 +1,20 @@
 @import url(../variables.module.css);
-
 .selectedProducts {
   border-bottom: 1px solid var(--primary);
 }
 .prodsContainer {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: var(--padding);
   margin-bottom: var(--padding);
 }
 .prodInfo {
   display: flex;
   align-items: flex-end;
+}
+.remove {
+  border: none;
 }
 
 .prodInfo > img {
@@ -24,4 +27,12 @@
 }
 .heading {
   text-transform: capitalize;
+}
+
+@media (min-width: 1024px) {
+  .selectedProducts {
+    width: 50%;
+    border-right: 1px solid var(--primary);
+    border-bottom: 0;
+  }
 }

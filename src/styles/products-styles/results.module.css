@@ -53,3 +53,17 @@
 .featuredItemsLink > svg {
   color: var(--background-color);
 }
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
+  }
+}

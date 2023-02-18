@@ -1,0 +1,20 @@
+@import url(../variables.module.css);
+
+@media (min-width: 1024px) {
+  .container {
+    padding: var(--padding);
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    overflow: hidden;
+    height: 60vh;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

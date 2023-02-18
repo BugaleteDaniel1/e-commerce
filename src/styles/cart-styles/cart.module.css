@@ -1,0 +1,10 @@
+@import url(../variables.module.css);
+.container {
+  padding: var(--padding);
+}
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+}

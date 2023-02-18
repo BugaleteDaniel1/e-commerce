@@ -24,14 +24,14 @@ export const SelectedCartProduct = () => {
               <div className={CartTopCSS.counterChildren}>1</div>
               <div className={CartTopCSS.counterChildren}>-</div>
             </div> */}
-            <div
+            <button
               onClick={() =>
                 dispatch({ type: "REMOVE_THIS_ITEM", payload: prd.id })
               }
               className={CartTopCSS.remove}
             >
               <FaTrash />
-            </div>
+            </button>
           </div>
         );
       })}

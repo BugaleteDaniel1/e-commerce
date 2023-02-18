@@ -9,12 +9,8 @@
 .imageContainer {
   display: none;
 }
-.landingBtn {
-  background: var(--accent);
-  color: var(--background-color);
-}
 
-.landingHeader {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,17 +18,17 @@
 }
 
 @media (min-width: 700px) {
-  .landingPage {
-    margin: var(--padding);
+  .container {
+    padding: var(--padding);
     display: flex;
     justify-content: space-between;
     gap: var(--padding);
   }
-  .landingP {
+  .paragraph {
     margin-top: 0;
     line-height: 1.5;
   }
-  .landingTitle {
+  .title {
     font-size: 3rem;
   }
 
@@ -42,7 +38,7 @@
     position: relative;
   }
 
-  .homeImg {
+  .img {
     position: relative;
     border-radius: 10px;
     z-index: 2;
@@ -63,7 +59,7 @@
     left: -10%;
   }
 
-  .landingHeader {
+  .header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -74,28 +70,28 @@
 }
 
 @media (min-width: 1024px) {
-  .landingPage {
+  .container {
     padding: calc(var(--padding) * 2);
     align-items: center;
     height: 50%;
   }
 
-  .homeImg {
+  .img {
     max-height: 30rem;
   }
 
-  .landingP {
+  .paragraph {
     font-size: 1rem;
   }
-  .landingTitle {
+  .title {
     font-size: 3rem;
   }
 }
 @media (min-width: 1440px) {
-  .landingTitle {
+  .title {
     font-size: 6rem;
   }
-  .homeImg {
+  .img {
     width: 90%;
   }
   .animation {
