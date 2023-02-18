@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
 
-const url = "https://course-api.com/react-store-products";
+const url = import.meta.env.VITE_API_KEY;
 
 export const homeContext = createContext(null);
 

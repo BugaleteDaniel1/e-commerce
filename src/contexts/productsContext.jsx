@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useContext, createContext } from "react";
-const url = "https://course-api.com/react-store-products";
+const url = import.meta.env.VITE_API_KEY;
 
 const productContext = createContext(null);
 
